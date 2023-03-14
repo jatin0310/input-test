@@ -1,0 +1,31 @@
+name: Test Python Input
+
+on:
+   push:
+      branches: [ "main" ]
+
+   workflow_dispatch:
+     inputs:
+       myInput:
+         description: 'User Input:'
+         required: true
+         default: "Hello World"
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+  
+      - name: Checkout
+        uses: actions/checkout@v3
+  
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+  
+      - name: Execute Test Script
+        run: |
+          echo "Store: ${{ github.event.inputs.myInput }}"
+          INPUT_STORE=${{ github.event.inputs.myInput }} 
+          python3 test.py
