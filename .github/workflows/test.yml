@@ -6,10 +6,14 @@ on:
 
    workflow_dispatch:
      inputs:
-       myInput:
-         description: 'User Input:'
+       int1:
+         description: 'Enter first no'     
          required: true
-         default: "Hello World"
+         
+       int2:
+         description: 'Enter second no'     
+         required: true
+        
 
 jobs:
   job1:
@@ -19,13 +23,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
   
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+      # - name: Setup Python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.10'
   
-      - name: Execute Test Script
+      - name: Execute inputs
         run: |
-          echo "Store: ${{ github.event.inputs.myInput }}"
-          INPUT_STORE=${{ github.event.inputs.myInput }} 
-          python3 test.py
+          echo "int1: ${{ github.event.inputs.int1 }}"
+          echo "int2: ${{ github.event.inputs.int2 }}"  
+           
+      
