@@ -3,15 +3,15 @@ name: Test Python Input
 on:
  
 
-   workflow_dispatch:
-     inputs:
-       int1:
-         description: 'Enter first no'     
-         required: true
-         
-       int2:
-         description: 'Enter second no'     
-         required: true
+  workflow_dispatch:
+    inputs:
+      int1:
+        description: 'Enter first no'     
+        required: true
+        
+      int2:
+        description: 'Enter second no'     
+        required: true
         
 
 jobs:
